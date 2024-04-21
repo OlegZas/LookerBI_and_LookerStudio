@@ -1,0 +1,40 @@
+# Place in `faa` model
+explore: +airports {
+  aggregate_table: rollup__facility_type {
+    query: {
+      dimensions: [facility_type]
+      measures: [average_elevation, count]
+    }
+
+    materialization: {
+      datagroup_trigger: default
+    }
+  }
+}
+
+# Place in `faa` model
+explore: +flights {
+  aggregate_table: rollup__depart_week__distance_tiered__0 {
+    query: {
+      dimensions: [depart_week, distance_tiered]
+      measures: [count]
+      filters: [flights.depart_date: "2003"]
+    }
+
+    materialization: {
+      datagroup_trigger: default
+    }
+  }
+
+  aggregate_table: rollup__depart_week__1 {
+    query: {
+      dimensions: [depart_week]
+      measures: [cancelled_count]
+      filters: [flights.depart_date: "2004"]
+    }
+
+    materialization: {
+      datagroup_trigger: default
+    }
+  }
+}

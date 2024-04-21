@@ -1,0 +1,31 @@
+- dashboard: airports_oleg_zas
+  title: Airports (Oleg Zas)
+  layout: newspaper
+  preferred_viewer: dashboards-next
+  description: ''
+  elements:
+  - title: Average Elevation
+    name: Average Elevation
+    model: faa
+    explore: airports
+    type: single_value
+    fields: [airports.average_elevation]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#E52592"
+    single_value_title: Average Airport Elevation
+    value_format: '0.00'
+    defaults_version: 1
+    listen: {}
+    row: 0
+    col: 0
+    width: 9
+    height: 3
