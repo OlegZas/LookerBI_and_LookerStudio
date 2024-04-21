@@ -8,7 +8,7 @@
 
 a. Counted the number of flights for each month of 2003 tiered (pivoted) based on distance
 
-![Flight Schedules 2003](https://github.com/OlegZas/LookerBI_and_LookerStudio/assets/115661636/ff7dba09-a945-4e60-b721-2126ca0e9fd1)
+
 
 ---
 
