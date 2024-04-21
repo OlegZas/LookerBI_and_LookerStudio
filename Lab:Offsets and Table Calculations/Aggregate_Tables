@@ -1,0 +1,57 @@
+# Place in `training_ecommerce` model
+explore: +order_items {
+  aggregate_table: rollup__users_traffic_source__0 {
+    query: {
+      dimensions: [users.traffic_source]
+      measures: [order_count]
+      filters: [order_items.created_date: "1 years ago for 1 years"]
+    }
+
+    materialization: {
+      datagroup_trigger: training_ecommerce_default_datagroup
+    }
+  }
+
+  aggregate_table: rollup__users_state__1 {
+    query: {
+      dimensions: [users.state]
+      measures: [order_count]
+      filters: [
+        order_items.created_date: "1 years ago for 1 years",
+        users.country: "USA",
+        users.first_name: "-Oleg Zas"
+      ]
+    }
+
+    materialization: {
+      datagroup_trigger: training_ecommerce_default_datagroup
+    }
+  }
+
+  aggregate_table: rollup__users_created_week__2 {
+    query: {
+      dimensions: [users.created_week]
+      measures: [users.count]
+      filters: [
+        users.created_date: "2020/05/15 to 2020/09/16",
+        users.first_name: "-Oleg Zas"
+      ]
+    }
+
+    materialization: {
+      datagroup_trigger: training_ecommerce_default_datagroup
+    }
+  }
+
+  aggregate_table: rollup__returned_month__3 {
+    query: {
+      dimensions: [returned_month]
+      measures: [order_item_count]
+      filters: [order_items.returned_date: "2020"]
+    }
+
+    materialization: {
+      datagroup_trigger: training_ecommerce_default_datagroup
+    }
+  }
+}
